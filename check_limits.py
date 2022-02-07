@@ -23,8 +23,7 @@ def battery_is_ok(temperature, soc, charge_rate):
     charge_rateNotOk = isValueNotInRange(charge_rate, battery_charge_rate.min_permissible_value, battery_charge_rate.max_permissible_value)
     if temperatureNotOk or socNotOk or charge_rateNotOk:
         return False
-    else:
-        return True
+    return True
 
 
 if __name__ == '__main__':
