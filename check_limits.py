@@ -15,9 +15,9 @@ def battery_is_ok(test_data):
 
 class Battery_param_limit_test_data:
   def __init__(self, temperature, soc, charge_rate):
-  self.temperature = temperature
-  self.soc = soc
-  self.charge_rate = charge_rate
+    self.temperature = temperature
+    self.soc = soc
+    self.charge_rate = charge_rate
   
 test_data1 = Battery_param_limit_test_data(B1.battery_temp.max_permissible_value , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value)
 
