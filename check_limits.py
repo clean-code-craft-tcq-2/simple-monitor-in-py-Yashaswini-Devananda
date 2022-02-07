@@ -25,7 +25,10 @@ def battery_is_ok(temperature, soc, charge_rate):
 #     if temperatureNotOk or socNotOk or charge_rateNotOk:
 #         return False
 #     return True
-
+if battery_temp.min_permissible_value == battery_temp.max_permissible_value:
+    print ("No")
+else:
+    print ("Yes")  
 
 if __name__ == '__main__':
   assert(battery_is_ok(25, 70, 0.7) is True)
