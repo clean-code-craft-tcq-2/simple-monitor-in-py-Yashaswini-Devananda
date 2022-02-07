@@ -19,7 +19,7 @@ class Battery_param_limit_test_data:
   self.soc = soc
   self.charge_rate = charge_rate
   
-test_data1 = Battery_param_limit_test_data(B1.battery_temp.max_permissible_value , B1.battery_soc.max_permissible_value, battery_charge_rate.max_permissible_value)
+test_data1 = Battery_param_limit_test_data(B1.battery_temp.max_permissible_value , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value)
 
 if __name__ == '__main__':
   assert(battery_is_ok(test_data1) is True)
