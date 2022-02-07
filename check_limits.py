@@ -22,8 +22,16 @@ class Battery_param_limit_test_data:
 max_temp_check = Battery_param_limit_test_data(B1.battery_temp.max_permissible_value , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value)
 min_temp_check = Battery_param_limit_test_data(B1.battery_temp.min_permissible_value , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value)
 beyond_max_temp_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value + 0.1) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value)
+beyond_min_temp_check = Battery_param_limit_test_data((B1.battery_temp.min_permissible_value - 0.1) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value)
+in_range_min_temp_check = Battery_param_limit_test_data((B1.battery_temp.min_permissible_value + 0.1) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value)
+in_range_max_temp_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value + 0.1) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value)
 
 if __name__ == '__main__':
+  assert(battery_is_ok(max_temp_check) is True)
+  assert(battery_is_ok(min_temp_check) is True)
   assert(battery_is_ok(beyond_max_temp_check) is False)
+  assert(battery_is_ok(beyond_min_temp_check) is False)
+  assert(battery_is_ok(in_range_min_temp_check) is True)
+  assert(battery_is_ok(in_range_max_temp_check) is True)
 #   assert(battery_is_ok(25, 70, 0.7) is True)
 #   assert(battery_is_ok(50, 85, 0) is False)
