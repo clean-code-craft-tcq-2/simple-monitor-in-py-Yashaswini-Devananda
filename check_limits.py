@@ -1,4 +1,4 @@
-import range_class.Range as Range
+import range_class as Range
 import enum
 
 battery = []
