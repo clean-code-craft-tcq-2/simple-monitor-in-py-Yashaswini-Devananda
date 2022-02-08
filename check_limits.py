@@ -35,10 +35,10 @@ in_range_max_soc_check = Battery_param_limit_test_data(B1.battery_temp.max_permi
 
 max_cr_check = Battery_param_limit_test_data(B1.battery_temp.max_permissible_value , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value)
 min_cr_check = Battery_param_limit_test_data(B1.battery_temp.max_permissible_value , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.min_permissible_value)
-beyond_max_cr_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value + 0.1) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value+0.1)
-beyond_min_cr_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value - 0.1) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.min_permissible_value-0.1)
-in_range_min_cr_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value + 0.1) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.min_permissible_value+0.1)
-in_range_max_cr_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value - 0.1) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value-0.1)
+beyond_max_cr_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value+0.1)
+beyond_min_cr_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.min_permissible_value-0.1)
+in_range_min_cr_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.min_permissible_value+0.1)
+in_range_max_cr_check = Battery_param_limit_test_data((B1.battery_temp.max_permissible_value) , B1.battery_soc.max_permissible_value, B1.battery_charge_rate.max_permissible_value-0.1)
 
 if __name__ == '__main__':
     assert(battery_is_ok(max_temp_check) is True)
