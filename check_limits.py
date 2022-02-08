@@ -1,10 +1,10 @@
-import range_class as Range
+import range_class
 import enum
 
 battery = []
-battery.append(Range(0, 45)) # temperature
-battery.append(Range(20, 80)) # soc
-battery.append(Range(0, 0.8)) # charge_rate
+battery.append(range_class.Range(0, 45)) # temperature
+battery.append(range_class.Range(20, 80)) # soc
+battery.append(range_class.Range(0, 0.8)) # charge_rate
 
 class Param(enum.IntEnum):
     temperature = 0
