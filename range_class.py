@@ -20,10 +20,10 @@ class Range:
         tolerance_value = (self.tolerance/100)*self.max
         if parameter_value < self.min:
             return Status_message.LOW_BREACH
-        elif parameter_value > self.max:
+        if parameter_value > self.max:
             return Status_message.HIGH_BREACH
-        elif (self.warning_flag == True) and (parameter_value <= (self.min+tolerance_value)):
+        if (self.warning_flag == True) and (parameter_value <= (self.min+tolerance_value)):
             return Status_message.LOW_WARNING
-        elif (self.warning_flag == True) and (parameter_value >= (self.max-tolerance_value)):
+        if (self.warning_flag == True) and (parameter_value >= (self.max-tolerance_value)):
             return Status_message.HIGH_WARNING 
         return Status_message.NORMAL
