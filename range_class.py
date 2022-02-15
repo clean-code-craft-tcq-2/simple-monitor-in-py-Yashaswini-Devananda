@@ -15,17 +15,26 @@ class Range:
         self.warning_flag = kwargs.get('warning_flag', False)
         self.tolerance = kwargs.get('tolerance', 0)
  
-        
-    def isValueNotInRange(self, parameter_value):
+    def check_for_breach(self, parameter_value):
         message = Status_message.NORMAL
         if parameter_value < self.min:
             message = Status_message.LOW_BREACH
         elif parameter_value > self.max:
-            message = Status_message.HIGH_BREACH
-        elif self.warning_flag == True:
-            tolerance_value = (self.tolerance/100)*self.max
-            if parameter_value <= (self.min+tolerance_value):
-                message = Status_message.LOW_WARNING
-            elif parameter_value >= (self.max-tolerance_value):
-                message = Status_message.HIGH_WARNING 
+            message = Status_message.HIGH_BREACH 
         return message
+            
+    def check_for_warning(self, parameter_value):
+        message = Status_message.NORMAL
+        tolerance_value = (self.tolerance/100)*self.max
+        if self.warning_flag == True and (parameter_value <= (self.min+tolerance_value)):
+            message = Status_message.LOW_WARNING
+        elif self.warning_flag == True and (parameter_value >= (self.max-tolerance_value)):
+            message = Status_message.HIGH_WARNING 
+        return message
+        
+    def isValueNotInRange(self, parameter_value):
+        message = check_for_breach(parameter_value)
+        if message == Status_message.NORMAL:
+            message = check_for_warning(parameter_value)
+        return message
+
