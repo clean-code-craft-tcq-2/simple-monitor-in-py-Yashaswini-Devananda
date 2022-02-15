@@ -26,15 +26,15 @@ class Range:
     def check_for_warning(self, parameter_value):
         message = Status_message.NORMAL
         tolerance_value = (self.tolerance/100)*self.max
-        if self.warning_flag == True and (parameter_value <= (self.min+tolerance_value)):
+        if parameter_value <= (self.min+tolerance_value):
             message = Status_message.LOW_WARNING
-        elif self.warning_flag == True and (parameter_value >= (self.max-tolerance_value)):
+        elif parameter_value >= (self.max-tolerance_value):
             message = Status_message.HIGH_WARNING 
         return message
         
     def isValueNotInRange(self, parameter_value):
         message = check_for_breach(parameter_value)
-        if message == Status_message.NORMAL:
+        if self.warning_flag == True and message == Status_message.NORMAL:
             message = check_for_warning(parameter_value)
         return message
 
