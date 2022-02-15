@@ -33,8 +33,8 @@ class Range:
         return message
         
     def isValueNotInRange(self, parameter_value):
-        message = check_for_breach(parameter_value)
+        message = self.check_for_breach(parameter_value)
         if self.warning_flag == True and message == Status_message.NORMAL:
-            message = check_for_warning(parameter_value)
+            message = self.check_for_warning(parameter_value)
         return message
 
