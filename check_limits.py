@@ -87,6 +87,9 @@ if __name__ == '__main__':
         battery_status[i] = battery[i].min+0.1
         assert(battery_is_ok(battery_status) is True)
         
+        battery_status[i] = battery[i].min+((20/100)*battery[i].max)
+        assert(battery_is_ok(battery_status) is True)
+        
         battery_status[i] = battery[i].max+0.1
         assert(battery_is_ok(battery_status) is False)
         
